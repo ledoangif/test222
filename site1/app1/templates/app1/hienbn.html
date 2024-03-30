@@ -1,0 +1,42 @@
+{% extends "app1/base.html" %} {% block content %}
+<div class="container">
+<div class="row">
+<div class="col-md-6 col__mr">
+  <form action="{% url "hienPK" %}" method="post">
+    {% csrf_token %} 
+    <select class="form-select" name="selected_option">
+      {% if listPK %} {% for PK in listPK %}
+      <option value="{{PK.SoPhong}}">{{PK.NamePK}}</option>
+      {% endfor %} {% endif %}
+    </select>
+    <button type="submit" class="btn btn-primary">chuyển đến phòng khám</button>
+  </form>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 col__mr">
+<table border="2" cellspacing="10" class="col__mg">
+  <tr>
+    <th colspan="4">Phòng chờ</th>
+  </tr>
+  <tr>
+    <th>Tên bệnh nhân</th>
+    <th>Ngày Sinh</th>
+    <th>Ngày khám</th>
+    <th>CCCD</th>
+  </tr>
+  {% if dq %} {% for item in dq %}
+  <tr>
+    <td>{{item.NameBN}}</td>
+    <td>{{item.Date}}</td>
+    <td>{{item.DateK}}</td>
+    <td>{{item.CCCD}}</td>
+  </tr>
+  {% endfor %} {% else %}
+  <h1 style="color: red">Chưa có bệnh nhân nào</h1>
+  {% endif %}
+</table>
+</div>
+</div>
+</div>
+{%endblock content%}

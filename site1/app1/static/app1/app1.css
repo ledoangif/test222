@@ -1,0 +1,16 @@
+.col__mg{
+    margin: auto;
+    background-color: burlywood;
+}
+.col__mr{
+    margin: auto;
+}
+table{
+    border:1px solid black;
+}
+th{
+    border:1px solid black;
+}
+td{
+    border:1px solid black;
+}

@@ -1,0 +1,9 @@
+{% extends "app1/base.html" %} {% block content %}
+<ul>
+  {% if dsPK %} {% for item in dsPK %}
+  <li><a href="{% url "detailPK" item.id %}">{{item.NamePK}}</a></li>
+  {% endfor %} {% else %}
+  <h1 style="color: red">không có dữ liệu</h1>
+  {% endif %}
+</ul>
+{%endblock content%}

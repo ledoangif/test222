@@ -1,0 +1,13 @@
+
+{% extends "app1/base.html" %} {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 col__mg">
+<form action="{% url "savebn" %}" method="post"> {% csrf_token %} 
+    {{form.as_p }}
+  <button class="btn btn-primary" type="submit">Thêm</button>
+  </form>
+</div>
+</div>
+</div>
+{%endblock content%}
